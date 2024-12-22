@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -26,13 +26,13 @@ void WisdomContainer::print() const {
         if (wisdom->getType() == "Aphorism") {
             auto aphorism = dynamic_cast<const Aphorism*>(wisdom);
             if (aphorism) {
-                std::cout << aphorism->getType() << ": " << aphorism->content << " - Author: " << aphorism->author << std::endl;
+                std::cout << aphorism->getType() << ": " << aphorism->content << " - Автор: " << aphorism->author << std::endl;
             }
         }
         else if (wisdom->getType() == "Proverb") {
             auto proverb = dynamic_cast<const Proverb*>(wisdom);
             if (proverb) {
-                std::cout << proverb->getType() << ": " << proverb->content << " - Country: " << proverb->country << std::endl;
+                std::cout << proverb->getType() << ": " << proverb->content << " - Страна: " << proverb->country << std::endl;
             }
         }
 
@@ -40,7 +40,7 @@ void WisdomContainer::print() const {
 }
 
 
-void processCommand(WisdomContainer& container, const std::string& command) {
+void static processCommand(WisdomContainer& container, const std::string& command) {
     std::istringstream iss(command);
     std::string cmd;
     iss >> cmd;
@@ -118,7 +118,7 @@ void processCommand(WisdomContainer& container, const std::string& command) {
 }
 
 int main() {
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "Russian");
     WisdomContainer container;
     std::string command;
 
